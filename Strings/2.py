@@ -5,6 +5,7 @@ The input contains an integer N, (1 ≤ N ≤ 2000) corresponding to the number 
 Output
 For each test case, print one line containing the number of LEDs that John needs to set the desired value, followed by the word "leds".
 """
+import string
 
 
 def howMuchLedsYouNeedFor(number: int) -> str:
@@ -15,6 +16,7 @@ def howMuchLedsYouNeedFor(number: int) -> str:
         if digits in dict_numbers.keys():
             amount += dict_numbers[digits]
     print(amount)
+    print(string.ascii_letters)
 
 
 if __name__ == '__main__':
