@@ -19,22 +19,23 @@ For example, the string "fb xee ac" has three letter ranges, "a:c" (the letters 
 import string
 
 
-
-def letterRange(word: str) -> str:
+def letterRange(words: list[str]) -> None:
     alphabet: str = string.ascii_lowercase
     max: int = 0
     min: int = 0
-    for index, letter in enumerate(word):
-        if index == 0:
-            max = alphabet.index(letter)
-            min = alphabet.index(letter)
-        else:
-            if alphabet.index(letter) >= max:
+    for word in words:
+        for index, letter in enumerate(word):
+            if index == 0:
                 max = alphabet.index(letter)
-            elif alphabet.index(letter) < min:
                 min = alphabet.index(letter)
-    print(f"{alphabet[min]}:{alphabet[max]}")
+            else:
+                if alphabet.index(letter) >= max:
+                    max = alphabet.index(letter)
+                elif alphabet.index(letter) < min:
+                    min = alphabet.index(letter)
+        print(f"{alphabet[min]}:{alphabet[max]}")
 
 
 if __name__ == '__main__':
-    letterRange("xyzzy".lower())
+    for n in range(int(input())):
+        letterRange(input().lower().split(" "))
